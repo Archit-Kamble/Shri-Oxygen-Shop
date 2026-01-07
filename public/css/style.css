@@ -1,1 +1,136 @@
 
+/* ===== MOBILE-FIRST, STABLE UI ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fb;
+  color: #222;
+  font-size: 16px;
+}
+
+/* Header */
+.topbar {
+  background: #2b95c9;
+  color: #fff;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+/* Layout */
+.container {
+  padding: 14px;
+}
+
+/* Quick buttons */
+.quick {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.big-btn {
+  width: 100%;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.card.small {
+  padding: 12px;
+}
+
+/* Forms */
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  min-height: 90px;
+}
+
+/* Primary buttons */
+button.primary {
+  width: 100%;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+/* Small buttons */
+button.small-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Chips */
+.chip {
+  display: inline-block;
+  background: #eef7fb;
+  padding: 6px 10px;
+  border-radius: 20px;
+  margin: 6px 6px 0 0;
+  font-size: 14px;
+}
+
+/* Muted */
+.muted {
+  color: #666;
+  font-size: 14px;
+}
+
