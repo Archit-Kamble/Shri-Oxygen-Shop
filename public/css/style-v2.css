@@ -1,30 +1,22 @@
-/* ===============================
-   BASE STYLES (DESKTOP + MOBILE)
-   =============================== */
-
-:root {
-  --blue: #2b95c9;
-  --accent: #1976d2;
-  --muted: #666;
-}
+/* ===== MOBILE-FIRST, STABLE UI ===== */
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   background: #f7f9fb;
   color: #222;
   font-size: 16px;
 }
 
-/* Top bar */
+/* Header */
 .topbar {
-  background: var(--blue);
+  background: #2b95c9;
   color: #fff;
-  padding: 12px 16px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,90 +28,96 @@ body {
 
 /* Layout */
 .container {
-  padding: 12px;
+  padding: 14px;
 }
 
-/* Dashboard quick buttons */
+/* Quick buttons */
 .quick {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .big-btn {
-  display: block;
-  flex: 1;
-  background: var(--accent);
+  width: 100%;
+  background: #1976d2;
   color: #fff;
   border: none;
-  padding: 12px;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 16px;
+  font-size: 17px;
+  border-radius: 10px;
 }
 
 /* Cards */
 .card {
   background: #fff;
-  border-radius: 6px;
-  padding: 12px;
-  margin: 12px 0;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 14px;
 }
 
 .card.small {
-  padding: 10px;
+  padding: 12px;
 }
 
 /* Forms */
 label {
   display: block;
-  margin: 8px 0 4px;
+  margin-top: 12px;
+  margin-bottom: 4px;
   font-weight: 600;
-  color: #333;
 }
 
-input[type="text"],
-input[type="tel"],
+input,
 select,
 textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px;
   font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 textarea {
-  resize: vertical;
+  min-height: 90px;
 }
 
-/* Buttons */
+/* Primary buttons */
 button.primary {
-  display: block;
   width: 100%;
-  background: var(--accent);
+  background: #1976d2;
   color: #fff;
   border: none;
-  padding: 14px;
-  margin-top: 10px;
-  border-radius: 6px;
+  padding: 16px;
   font-size: 18px;
+  border-radius: 12px;
 }
 
+/* Small buttons */
 button.small-btn {
-  background: var(--accent);
+  background: #1976d2;
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
 }
 
-/* Misc */
-.muted {
-  color: var(--muted);
-  margin-top: 8px;
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
 }
 
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Chips */
 .chip {
   display: inline-block;
   background: #eef7fb;
@@ -129,115 +127,8 @@ button.small-btn {
   font-size: 14px;
 }
 
-/* Tables */
-.history {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.history th,
-.history td {
-  padding: 8px;
-  border: 1px solid #eee;
-  text-align: left;
+/* Muted */
+.muted {
+  color: #666;
   font-size: 14px;
-}
-
-/* Search bar */
-.search {
-  display: flex;
-  gap: 8px;
-}
-
-.search input {
-  flex: 1;
-}
-
-/* ===============================
-   DESKTOP ONLY
-   =============================== */
-@media (min-width: 768px) {
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-}
-
-/* ===============================
-   MOBILE FINAL – READABLE & SAFE
-   =============================== */
-@media (max-width: 768px) {
-
-  body {
-    background: #f5f7fa;
-    font-size: 16px;
-  }
-
-  .container {
-    padding: 12px;
-  }
-
-  /* Quick buttons: 2 per row, easy tap */
-  .quick {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .big-btn {
-    padding: 14px;
-    font-size: 17px;
-    border-radius: 10px;
-  }
-
-  .card {
-    padding: 14px;
-    margin-bottom: 14px;
-  }
-
-  h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  label {
-    font-size: 15px;
-    margin-top: 10px;
-  }
-
-  input,
-  select,
-  textarea {
-    font-size: 16px;
-    padding: 12px;
-  }
-
-  textarea {
-    min-height: 80px;
-  }
-
-  button.primary {
-    padding: 16px;
-    font-size: 18px;
-    border-radius: 12px;
-  }
-
-  .topbar {
-    padding: 12px;
-    font-size: 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  th, td {
-    font-size: 15px;
-    padding: 10px;
-  }
 }
