@@ -1,81 +1,235 @@
-/* Mobile-first responsive styles */
-:root{--blue:#2b95c9;--accent:#1976d2;--muted:#666}
-*{box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f7f9fb;color:#222}
-.topbar{background:var(--blue);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.brand{font-weight:700}
-.container{padding:12px}
-.big-btn{display:block;width:100%;background:var(--accent);color:#fff;border:none;padding:12px;margin:8px 0;border-radius:6px;font-size:16px}
-.card{background:#fff;border-radius:6px;padding:12px;margin:12px 0;box-shadow:0 1px 0 rgba(0,0,0,0.05)}
-.card.small{padding:10px}
-label{display:block;margin:8px 0 4px;font-weight:600;color:#333}
-input[type="text"], input[type="tel"], select, textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px}
-textarea{resize:vertical}
-button.primary{display:block;width:100%;background:var(--accent);color:#fff;border:none;padding:12px;margin-top:10px;border-radius:6px}
-button.small-btn{background:var(--accent);color:#fff;border:none;padding:8px;border-radius:6px}
-.muted{color:var(--muted);margin-top:8px}
-.chip{display:inline-block;background:#eef7fb;padding:6px 10px;border-radius:20px;margin:6px 6px 0 0}
-.history{width:100%;border-collapse:collapse}
-.history th,.history td{padding:8px;border:1px solid #eee;text-align:left}
-.search{display:flex;gap:8px}
-.search input{flex:1}
-@media(min-width:768px){
-  .container{max-width:900px;margin:0 auto}
-  .quick{display:flex;gap:8px}
-  .quick .big-btn{flex:1}
+/* ===============================
+   BASE STYLES (DESKTOP + MOBILE)
+   =============================== */
+
+:root {
+  --blue: #2b95c9;
+  --accent: #1976d2;
+  --muted: #666;
 }
-/* FIX: always show dashboard quick buttons */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f7f9fb;
+  color: #222;
+  font-size: 16px;
+}
+
+/* Top bar */
+.topbar {
+  background: var(--blue);
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+/* Layout */
+.container {
+  padding: 12px;
+}
+
+/* Dashboard quick buttons */
 .quick {
-  display: flex !important;
-  flex-wrap: wrap;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
 }
-/* =====================================
-   MOBILE RESPONSIVE FIXES (SAFE)
-   ===================================== */
+
+.big-btn {
+  display: block;
+  flex: 1;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 12px 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+.card.small {
+  padding: 10px;
+}
+
+/* Forms */
+label {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+button.primary {
+  display: block;
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+button.small-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Misc */
+.muted {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.chip {
+  display: inline-block;
+  background: #eef7fb;
+  padding: 6px 10px;
+  border-radius: 20px;
+  margin: 6px 6px 0 0;
+  font-size: 14px;
+}
+
+/* Tables */
+.history {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history th,
+.history td {
+  padding: 8px;
+  border: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Search bar */
+.search {
+  display: flex;
+  gap: 8px;
+}
+
+.search input {
+  flex: 1;
+}
+
+/* ===============================
+   DESKTOP ONLY
+   =============================== */
+@media (min-width: 768px) {
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* ===============================
+   MOBILE FINAL – READABLE & SAFE
+   =============================== */
 @media (max-width: 768px) {
 
   body {
-    font-size: 15px;
+    background: #f5f7fa;
+    font-size: 16px;
   }
 
   .container {
-    padding: 10px;
+    padding: 12px;
+  }
+
+  /* Quick buttons: 2 per row, easy tap */
+  .quick {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .big-btn {
+    padding: 14px;
+    font-size: 17px;
+    border-radius: 10px;
   }
 
   .card {
-    padding: 12px;
-    margin-bottom: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
   }
 
   label {
+    font-size: 15px;
     margin-top: 10px;
   }
 
   input,
   select,
-  textarea,
-  button {
-    width: 100%;
+  textarea {
     font-size: 16px;
+    padding: 12px;
   }
 
   textarea {
     min-height: 80px;
   }
 
-  /* Dashboard quick buttons */
-  .quick {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .big-btn {
-    width: 100%;
-    padding: 14px;
+  button.primary {
+    padding: 16px;
     font-size: 18px;
+    border-radius: 12px;
   }
 
-  /* Tables scroll on mobile */
+  .topbar {
+    padding: 12px;
+    font-size: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
   table {
     display: block;
     overflow-x: auto;
@@ -83,96 +237,7 @@ button.small-btn{background:var(--accent);color:#fff;border:none;padding:8px;bor
   }
 
   th, td {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  /* Chips */
-  .chip {
-    display: inline-block;
-    margin: 4px 4px 4px 0;
-  }
-
-  /* Header */
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-}
-/* ===============================
-   MOBILE APP-LIKE LAYOUT FIX
-   =============================== */
-@media (max-width: 768px) {
-
-  /* Reduce overall whitespace */
-  body {
-    background: #f5f7fa;
-  }
-
-  .container {
-    padding: 8px;
-  }
-
-  /* Top action buttons -> app tabs */
-  .quick {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    margin-bottom: 10px;
-  }
-
-  .big-btn {
-    padding: 10px 4px;
-    font-size: 14px;
-    border-radius: 8px;
-  }
-
-  /* Cards tighter */
-  .card {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  h3 {
-    margin-top: 4px;
-    margin-bottom: 8px;
-  }
-
-  label {
-    font-size: 13px;
-    margin-top: 6px;
-  }
-
-  input,
-  select,
-  textarea {
     font-size: 15px;
-    padding: 8px;
-  }
-
-  textarea {
-    min-height: 60px;
-  }
-
-  /* Primary buttons (Sell / Return) */
-  button.primary {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 10px;
-  }
-
-  /* Reduce header height */
-  .topbar {
-    padding: 8px 10px;
-    font-size: 14px;
-  }
-
-  /* History tables scroll cleanly */
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    padding: 10px;
   }
 }
-
