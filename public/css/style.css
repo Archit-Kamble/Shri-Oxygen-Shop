@@ -29,3 +29,75 @@ button.small-btn{background:var(--accent);color:#fff;border:none;padding:8px;bor
   display: flex !important;
   flex-wrap: wrap;
 }
+/* =====================================
+   MOBILE RESPONSIVE FIXES (SAFE)
+   ===================================== */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  textarea {
+    min-height: 80px;
+  }
+
+  /* Dashboard quick buttons */
+  .quick {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .big-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+  }
+
+  /* Tables scroll on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Chips */
+  .chip {
+    display: inline-block;
+    margin: 4px 4px 4px 0;
+  }
+
+  /* Header */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
