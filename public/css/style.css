@@ -100,4 +100,79 @@ button.small-btn{background:var(--accent);color:#fff;border:none;padding:8px;bor
     gap: 6px;
   }
 }
+/* ===============================
+   MOBILE APP-LIKE LAYOUT FIX
+   =============================== */
+@media (max-width: 768px) {
+
+  /* Reduce overall whitespace */
+  body {
+    background: #f5f7fa;
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  /* Top action buttons -> app tabs */
+  .quick {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .big-btn {
+    padding: 10px 4px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  /* Cards tighter */
+  .card {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  label {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  textarea {
+    min-height: 60px;
+  }
+
+  /* Primary buttons (Sell / Return) */
+  button.primary {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  /* Reduce header height */
+  .topbar {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  /* History tables scroll cleanly */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
 
