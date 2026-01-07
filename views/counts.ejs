@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shri Oxygen - Counts</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Shri Oxygen</div>
+    <div class="nav-right"><a href="/dashboard">Dashboard</a></div>
+  </header>
+
+  <main class="container">
+    <h3>Counts</h3>
+    <% gases.forEach(g=>{ %>
+      <div class="card small">
+        <h4><%= g %></h4>
+        <p>
+          Active: <%= map[g] || 0 %>
+          &nbsp; Inactive: <%= 1000 - (map[g] || 0) %>
+        </p>
+        <button class="small-btn"
+          onclick="location.href='/active-customers?gas=<%= g %>'">
+          View active customers
+        </button>
+
+      </div>
+    <% }) %>
+  </main>
+</body>
+</html>

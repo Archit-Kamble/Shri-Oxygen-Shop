@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shri Oxygen - History</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Shri Oxygen</div>
+  <a href="/dashboard">Dashboard</a>
+</header>
+
+<main class="container">
+<section class="card">
+  <h3>Global History</h3>
+
+  <form method="GET" action="/history" class="search">
+    <input name="q" placeholder="Search by name or aadhar">
+    <button>Search</button>
+  </form>
+  <section class="card small">
+  <h4>Download History</h4>
+
+  <%
+    const now = new Date();
+    const month = now.toISOString().slice(0,7);
+    const year = now.getFullYear();
+  %>
+
+  <button onclick="location.href='/download/history?month=<%= month %>'">
+    Download This Month
+  </button>
+
+  <button onclick="location.href='/download/history?year=<%= year %>'">
+    Download This Year
+  </button>
+
+  <button onclick="location.href='/download/history'">
+    Download All Time
+  </button>
+
+  <p class="muted small">
+    Tip: Download and save these files regularly.
+  </p>
+</section>
+
+
+  <% if (activeByPerson && activeByPerson.length > 0) { %>
+    <section class="card small">
+      <h4>Active cylinders for this customer</h4>
+      <p>Total active: <strong><%= activeByPerson.length %></strong></p>
+      <% activeByPerson.forEach(c => { %>
+        <div class="chip"><%= c.gas %> — <%= c.cylinder_no %></div>
+      <% }) %>
+    </section>
+  <% } %>
+
+  <% if(rows.length===0){ %>
+    <p>No history yet.</p>
+  <% } else { %>
+    <table class="history">
+      <thead>
+        <tr><th>When</th><th>Action</th><th>Type</th><th>Cylinder</th><th>Customer</th></tr>
+      </thead>
+      <tbody>
+      <% rows.forEach(r=>{ %>
+        <tr>
+          <td><%= new Date(r.datetime).toLocaleString() %></td>
+          <td><%= r.action %></td>
+          <td><%= r.gas %></td>
+          <td><%= r.cylinder_no %></td>
+          <td>
+            <%= r.customer_name || '' %>
+            <div class="muted small">
+              <%= r.aadhar || '' %> <%= r.phone ? ' · '+r.phone : '' %>
+            </div>
+          </td>
+        </tr>
+      <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</section>
+
+<section class="card small">
+  <h4>Active counts</h4>
+  <% Object.keys(counts).forEach(k=>{ %>
+    <div><strong><%= k %></strong>: <%= counts[k] %></div>
+  <% }) %>
+</section>
+</main>
+</body>
+</html>

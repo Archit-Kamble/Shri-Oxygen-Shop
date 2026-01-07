@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <title>Active Customers</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Shri Oxygen</div>
+  <a href="/counts">Back</a>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h3>Active customers for <%= gas %></h3>
+
+    <% if (rows.length === 0) { %>
+      <p>No active customers.</p>
+    <% } else { %>
+      <table class="history">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Aadhar</th>
+            <th>Phone</th>
+            <th>Cylinder</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rows.forEach(r => { %>
+            <tr>
+              <td><%= r.customer_name %></td>
+              <td><%= r.aadhar || '' %></td>
+              <td><%= r.phone || '' %></td>
+              <td><%= r.cylinder_no %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </section>
+</main>
+
+</body>
+</html>

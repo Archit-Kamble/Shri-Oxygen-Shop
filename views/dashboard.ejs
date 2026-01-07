@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <title>Shri Oxygen - Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">Shri Oxygen</div>
+  <div>Vijay</div>
+</header>
+
+<main class="container">
+  <% if (msg) { %>
+  <div class="card small" style="background:#e8f5e9;color:#2e7d32">
+    <%= msg %>
+  </div>
+<% } %>
+
+
+<!-- QUICK ACTION BUTTONS -->
+<section class="quick">
+  <button class="big-btn" onclick="scrollToSection('sell')">Sell</button>
+  <button class="big-btn" onclick="scrollToSection('return')">Return</button>
+  <button class="big-btn" onclick="location.href='/counts'">Counts</button>
+  <button class="big-btn" onclick="location.href='/history'">History</button>
+</section>
+
+<section class="card" id="sell">
+  <h3>Sell</h3>
+  <form method="POST" action="/sell">
+    <label>Gas</label>
+    <select name="type" required>
+      <% gases.forEach(g => { %>
+        <option><%= g %></option>
+      <% }) %>
+    </select>
+
+    <label>Cylinder numbers (1,2,5-7)</label>
+    <textarea name="numbers" required></textarea>
+
+    <label>Customer Name</label>
+    <input name="customer_name" required>
+
+    <label>Aadhar</label>
+    <input name="aadhar">
+
+    <label>Phone</label>
+    <input name="phone">
+
+    <button class="primary">Sell</button>
+  </form>
+</section>
+
+<section class="card" id="return">
+  <h3>Return</h3>
+  <form method="POST" action="/return">
+    <label>Gas</label>
+    <select name="gas" id="returnGas" required>
+      <% gases.forEach(g => { %>
+        <option value="<%= g %>"><%= g %></option>
+      <% }) %>
+    </select>
+
+    <label>Active Cylinder</label>
+    <select name="cylinder_no" id="activeSelect" required>
+      <option value="">-- loading --</option>
+    </select>
+
+    <button class="primary">Return</button>
+  </form>
+</section>
+
+
+
+</main>
+<script src="/js/main.js"></script>
+
+</body>
+</html>
